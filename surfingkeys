@@ -1,0 +1,133 @@
+const {
+  aceVimMap,
+  mapkey,
+  imap,
+  imapkey,
+  insertJS,
+  getClickableElements,
+  vmapkey,
+  map,
+  unmap,
+  cmap,
+  addSearchAlias,
+  removeSearchAlias,
+  tabOpenLink,
+  readText,
+  Clipboard,
+  Front,
+  Hints,
+  Visual,
+  RUNTIME,
+} = api;
+
+
+// an example to create a new mapping `ctrl-y`
+api.mapkey('<ctrl-y>', 'Show me the money', function() {
+    Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
+});
+
+// an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
+api.map('gt', 'T');
+
+// an example to remove mapkey `Ctrl-i`
+api.unmap('<ctrl-i>');
+
+// set theme
+settings.theme = `
+.sk_theme {
+    font-family: Input Sans Condensed, Charcoal, sans-serif;
+    font-size: 10pt;
+    background: #24272e;
+    color: #abb2bf;
+}
+.sk_theme tbody {
+    color: #fff;
+}
+.sk_theme input {
+    color: #d0d0d0;
+}
+.sk_theme .url {
+    color: #61afef;
+}
+.sk_theme .annotation {
+    color: #56b6c2;
+}
+.sk_theme .omnibar_highlight {
+    color: #528bff;
+}
+.sk_theme .omnibar_timestamp {
+    color: #e5c07b;
+}
+.sk_theme .omnibar_visitcount {
+    color: #98c379;
+}
+.sk_theme #sk_omnibarSearchResult ul li:nth-child(odd) {
+    background: #303030;
+}
+.sk_theme #sk_omnibarSearchResult ul li.focused {
+    background: #3e4452;
+}
+#sk_status, #sk_find {
+    font-size: 20pt;
+}`;
+// click `Save` button to make above settings to take effect.</ctrl-i></ctrl-y>
+
+mapkey(
+  "yu",
+  "Copy current tab's title, with custimized transformation.",
+  function () {
+    try {
+      const title = document.title;
+      const text = new Blob([title], { type: 'text/plain' });
+      const href = new Blob([`<a href="${location.href}">${document.title}</a>`], {type: 'text/html'});
+            // 定义要放入的内容
+      const item = new window.ClipboardItem({
+        'text/plain': Promise.resolve(text),
+        'text/html': Promise.resolve(href)
+      });
+      navigator.clipboard.write([item]).then(() => {});
+    } catch (error) {
+      
+    }
+  },
+  {}
+);
+
+
+
+addSearchAlias('z', '知乎', 'https://www.zhihu.com/search?type=content&q=','s',
+  'https://www.zhihu.com/api/v4/search/suggest?q=',
+  (res)=>{
+    res=JSON.parse(res.text)
+    return res.suggest.map(x=>x.query);
+  }
+);
+
+
+addSearchAlias('v', 'v2ex', 'https://www.google.com/search?q=site:v2ex.com/t ','s',
+  'https://www.zhihu.com/api/v4/search/suggest?q=',
+  (res)=>{
+    res=JSON.parse(res.text)
+    return res.suggest.map(x=>x.query);
+  }
+);
+
+addSearchAlias('p', 'bilibili', 'https://search.bilibili.com/all?keyword=','s',
+  'https://s.search.bilibili.com/main/suggest?term=',
+  (res)=>{
+    debugger
+    res=JSON.parse(res.text).result.tag
+    
+    return res.map(x=>x.value);
+  }
+);
+//https://search.jd.com/Search?keyword=11
+addSearchAlias('j', '京东', 'https://search.jd.com/Search?keyword=','s',
+  'https://dd-search.jd.com?key=',
+  (res)=>{
+    debugger
+    res=JSON.parse(res.text)
+    res.pop()
+    return res.map(x=>x.keyword);
+  }
+);
