@@ -112,7 +112,7 @@ addSearchAlias('v', 'v2ex', 'https://www.google.com/search?q=site:v2ex.com/t ','
   }
 );
 
-addSearchAlias('l', 'linux', 'https://www.google.com/search?q=linux ','s',
+addSearchAlias('l', 'linux搜索', 'https://www.google.com/search?q=linux ','s',
   'https://www.zhihu.com/api/v4/search/suggest?q=',
   (res)=>{
     res=JSON.parse(res.text)
