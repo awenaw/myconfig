@@ -112,6 +112,14 @@ addSearchAlias('v', 'v2ex', 'https://www.google.com/search?q=site:v2ex.com/t ','
   }
 );
 
+addSearchAlias('l', 'linux', 'https://www.google.com/search?q=linux ','s',
+  'https://www.zhihu.com/api/v4/search/suggest?q=',
+  (res)=>{
+    res=JSON.parse(res.text)
+    return res.suggest.map(x=>x.query);
+  }
+);
+
 addSearchAlias('p', 'bilibili', 'https://search.bilibili.com/all?keyword=','s',
   'https://s.search.bilibili.com/main/suggest?term=',
   (res)=>{
