@@ -139,3 +139,13 @@ addSearchAlias('j', '京东', 'https://search.jd.com/Search?keyword=','s',
     return res.map(x=>x.keyword);
   }
 );
+
+addSearchAlias('c', '小红书', 'https://www.xiaohongshu.com/search_result?keyword=','s',
+  'https://edith.xiaohongshu.com/api/sns/web/v1/search/recommend?keyword=',
+  (res)=>{
+    debugger
+    res=JSON.parse(res.text).result.tag
+    
+    return res.map(x=>x.value);
+  }
+);
