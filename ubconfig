@@ -15,3 +15,16 @@ v7.apipost.cn##.header-proxy-tips
 ! 2023-12-26 https://www.bilibili.com
 www.bilibili.com##.adblock-tips
 
+
+! 2023-12-31 https://www.iyf.tv
+www.iyf.tv##.pggb.ps
+||pptstatic.iyf.tv/upload/video/202312271508140825775.jpg$image
+||pptstatic.iyf.tv/upload/video/202312271508140825775.jpg$image
+www.iyf.tv##vg-pause-d
+
+! 2024-01-18 https://www.baidu.com
+www.baidu.com##.c-color-t.c-font-normal.user-name
+www.baidu.com###user > .s-top-username
+
+! 2024-01-29 https://www.baidu.com
+www.baidu.com##.FYB_RD
