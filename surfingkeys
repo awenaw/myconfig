@@ -3,6 +3,7 @@ const {
   mapkey,
   imap,
   imapkey,
+  Normal,
   insertJS,
   getClickableElements,
   vmapkey,
@@ -20,6 +21,19 @@ const {
   RUNTIME,
 } = api;
 
+api.map('gp', '<Alt-p>');
+
+
+// -----------------------------
+// ♥ kill all tabs, launch url ♥
+// -----------------------------
+
+api.mapkey('zz', 'Homepage', function() {
+    // api.RUNTIME('tabOnly');
+    api.tabOpenLink('chrome://bookmarks/');
+    // api.RUNTIME('closeTab');
+});
+
 
 // an example to create a new mapping `ctrl-y`
 api.mapkey('<ctrl-y>', 'Show me the money', function() {
@@ -27,21 +41,33 @@ api.mapkey('<ctrl-y>', 'Show me the money', function() {
 });
 
 // an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
-api.map('gt', 'T');
+//api.map('gt', 'T');
+api.map('ce', 'ge');
+// api.map('<Meta-b>', '<Meta-a>');
+// api.map('gt', '<Meta-a>');
+
 
 // an example to remove mapkey `Ctrl-i`
 api.unmap('<ctrl-i>');
 
 // 向下滚动一页
-mapkey('cv', '#0Scroll a page up', function() {
-   debugger
-    Normal.scroll("pageDown");
+mapkey('cr', '#0Scroll a page up', function() {
+//   debugger
+   console.log(api);
+   document.body.requestFullscreen();
+    //Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
+
+    
 });
 
 // 向上滚动一页
 mapkey('<Ctrl-b>', '#0Scroll a page down', function() {
     Normal.scroll("pageUp");
 });
+
+// api.mapkey('<Meta-n>', '#0Debug key', function() {
+//     api.Front.showPopup(window.location.href);
+// });
 
 // set theme
 settings.theme = `
