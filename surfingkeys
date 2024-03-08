@@ -32,6 +32,16 @@ api.map('gt', 'T');
 // an example to remove mapkey `Ctrl-i`
 api.unmap('<ctrl-i>');
 
+// 向下滚动一页
+mapkey('<Ctrl-f>', '#0Scroll a page up', function() {
+    Normal.scroll("pageDown");
+});
+
+// 向上滚动一页
+mapkey('<Ctrl-b>', '#0Scroll a page down', function() {
+    Normal.scroll("pageUp");
+});
+
 // set theme
 settings.theme = `
 .sk_theme {
