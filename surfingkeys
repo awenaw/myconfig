@@ -34,7 +34,7 @@ api.unmap('<ctrl-i>');
 
 // 向下滚动一页
 mapkey('cv', '#0Scroll a page up', function() {
-   debbuger
+   debugger
     Normal.scroll("pageDown");
 });
 
