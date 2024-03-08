@@ -33,7 +33,8 @@ api.map('gt', 'T');
 api.unmap('<ctrl-i>');
 
 // 向下滚动一页
-mapkey('<Ctrl-f>', '#0Scroll a page up', function() {
+mapkey('cv', '#0Scroll a page up', function() {
+   debbuger
     Normal.scroll("pageDown");
 });
 
