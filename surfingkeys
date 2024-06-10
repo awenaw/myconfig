@@ -131,20 +131,32 @@ mapkey(
 );
 
 
+// 复制页面信息，如标题和地址
 mapkey(
   "yn",
   "Copy current tab's title, with custimized transformation.",
   function () {
-    const title = document.title;
+      //console.log("123");
+      const title = document.title;
       const URL = document.URL;
       //debugger
-      let r = title.concat(URL);
+      let r = 
+      "标题："
+      .concat(title)
+      .concat("\n")
+      .concat("=".repeat(title.length*2))
+      .concat("\n")
+      .concat("地址：")
+      .concat(URL);
+      // console.log(r);
+      
       // 定义要放入的内容
       navigator.clipboard.writeText(r).then(() => {
           //console.log('Text copied to clipboard');
       }).catch(err => {
           //console.error('Failed to copy text: ', err);
       });
+      
   },
   {}
 );
