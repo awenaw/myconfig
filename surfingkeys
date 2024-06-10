@@ -130,12 +130,12 @@ mapkey(
   {}
 );
 
+
 mapkey(
   "yn",
   "Copy current tab's title, with custimized transformation.",
   function () {
-    try {
-      const title = document.title;
+    const title = document.title;
       const URL = document.URL;
       //debugger
       let r = title.concat(URL);
@@ -148,6 +148,9 @@ mapkey(
   },
   {}
 );
+
+
+
 
 
 addSearchAlias('z', '知乎', 'https://www.zhihu.com/search?type=content&q=','s',
