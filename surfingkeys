@@ -130,6 +130,24 @@ mapkey(
   {}
 );
 
+mapkey(
+  "yn",
+  "Copy current tab's title, with custimized transformation.",
+  function () {
+    try {
+      const title = document.title;
+      const URL = document.URL;
+      //debugger
+      let r = title.concat(URL);
+      // 定义要放入的内容
+      navigator.clipboard.writeText(r).then(() => {
+          //console.log('Text copied to clipboard');
+      }).catch(err => {
+          //console.error('Failed to copy text: ', err);
+      });
+  },
+  {}
+);
 
 
 addSearchAlias('z', '知乎', 'https://www.zhihu.com/search?type=content&q=','s',
