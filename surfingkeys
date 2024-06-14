@@ -141,12 +141,12 @@ mapkey(
       const URL = document.URL;
       //debugger
       let r = 
-      "标题："
+      "页面标题："
       .concat(title)
       .concat("\n")
       .concat("=".repeat(title.length*2))
       .concat("\n")
-      .concat("地址：")
+      .concat("页面链接：")
       .concat(URL);
       // console.log(r);
       
