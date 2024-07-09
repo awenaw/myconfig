@@ -132,6 +132,7 @@ mapkey(
 
 
 // 复制页面信息，如标题和地址
+// 格式：[Linux系统IO分析工具之iotop参数详解（查看IO占用） - legend.baby - 博客园](https://www.cnblogs.com/legendbaby/p/5056967.html)
 mapkey(
   "yn",
   "Copy current tab's title, with custimized transformation.",
@@ -141,13 +142,12 @@ mapkey(
       const URL = document.URL;
       //debugger
       let r = 
-      "页面标题："
+      "["
       .concat(title)
-      .concat("\n")
-      .concat("=".repeat(title.length*2))
-      .concat("\n")
-      .concat("页面链接：")
-      .concat(URL);
+      .concat("]")
+      .concat("(")
+      .concat(URL)
+      .concat(")");
       // console.log(r);
       
       // 定义要放入的内容
@@ -160,6 +160,7 @@ mapkey(
   },
   {}
 );
+
 
 
 
