@@ -149,6 +149,8 @@ mapkey(
       .concat(URL)
       .concat(" )");
       // console.log(r);
+      // console.log(r);
+
       
       // 定义要放入的内容
       navigator.clipboard.writeText(r).then(() => {
